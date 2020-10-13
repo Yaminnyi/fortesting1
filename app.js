@@ -695,6 +695,15 @@ const handleMessage = (sender_psid, received_message) => {
           startGreeting(sender_psid);
         break;
       }              
+      case "text":
+        textReply(sender_psid);
+        break;      
+      case "button":                  
+        buttonReply(sender_psid);
+        break;
+      case "webview":
+        webviewTest(sender_psid);
+        break;      
                     
       default:
           defaultReply(sender_psid);
@@ -1139,8 +1148,14 @@ function testDelete(sender_psid){
 }
 
 const defaultReply = (sender_psid) => {
-  llet response = startGreeting(sender_psid);
- callSend(sender_psid, response)
+  let response1 = {"text": "To test text reply, type 'text'"};
+  let response2 = {"text": "To test quick reply, type 'quick'"};
+  let response3 = {"text": "To test button reply, type 'button'"};   
+  let response4 = {"text": "To test webview, type 'webview'"};
+    callSend(sender_psid, response1).then(()=>{
+      return callSend(sender_psid, response2).then(()=>{
+        return callSend(sender_psid, response3).then(()=>{
+          return callSend(sender_psid, response4);
         });
       });
   });  
