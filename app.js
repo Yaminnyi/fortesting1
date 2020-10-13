@@ -695,15 +695,6 @@ const handleMessage = (sender_psid, received_message) => {
           startGreeting(sender_psid);
         break;
       }              
-      case "text":
-        textReply(sender_psid);
-        break;      
-      case "button":                  
-        buttonReply(sender_psid);
-        break;
-      case "webview":
-        webviewTest(sender_psid);
-        break;      
                     
       default:
           defaultReply(sender_psid);
