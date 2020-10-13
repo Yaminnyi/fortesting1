@@ -18,11 +18,7 @@ const
   app = express(); 
 
 const uuidv4 = uuid();
-const session = require('express-session');
 
-app.use(body_parser.json());
-app.use(body_parser.urlencoded());
-app.use(session({secret: 'effystonem'}));
 
 const bot_questions = {
   "q1": "please enter you name",
